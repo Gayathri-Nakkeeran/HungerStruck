@@ -1,34 +1,105 @@
 import Image from "next/image";
 import Product from "./Product.js";
-export default function Card() {
+import { useSelector, useDispatch } from "react-redux";
+type categoryFilter = {
+  category?: string;
+  searchBy?: string;
+};
+export default function Card(props: categoryFilter) {
+  const dispatch = useDispatch();
+  const searchBy = useSelector((state) => state.searchBy);
+  const sortBy = useSelector((state) => state.sortBy);
+
+  const handleAddToCart = (e) => {
+    console.log("item added to cart");
+    console.log(e.target.id);
+    dispatch({
+      type: "addToCart",
+      payload: { id: e.target.id, price: Product[e.target.id - 1]["price"] },
+    });
+  };
+  // {console.log()}
+
+  if (searchBy.length > 0) {
+    return (
+      <div className="grid grid-cols-4 m-4">
+        {Product.map((item) => {
+          // console.log(/.*searchBy}.*/);
+          if (item.title.toLowerCase().indexOf(searchBy.toLowerCase()) > -1)
+            return (
+              <div
+                key={item.id}
+                className=" grid max-w-sm rounded border border-red-50 m-4"
+              >
+                <Image
+                  className=" justify-self-center h-20 w-20 m-7"
+                  src={item.image01}
+                  alt="food"
+                />
+                <span className="block text-center eczar font-semibold">
+                  {item.title}
+                </span>
+                <div className="mb-5">
+                  <span className="font-bold text-red-600 text-start float-left m-3">
+                    ${item.price}
+                  </span>
+                  <span className="text-end float-right my-3 mx-4">
+                    <button
+                      id={item.id}
+                      onClick={(e) => {
+                        handleAddToCart(e);
+                      }}
+                      className="bg-red-600 text-white rounded px-5 "
+                    >
+                      Add To Cart
+                    </button>
+                  </span>
+                </div>
+              </div>
+            );
+        })}
+      </div>
+    );
+  }
+
   return (
     <div className="grid grid-cols-4 m-4">
       {Product.map((item) => {
-        return (
-          <div
-            key={item.id}
-            className=" grid max-w-sm rounded border border-red-50 m-4"
-          >
-            <Image
-              className=" justify-self-center h-20 w-20 m-7"
-              src={item.image01}
-              alt="food"
-            />
-            <span className="block text-center eczar font-semibold">
-              {item.title}
-            </span>
-            <div>
-              <span className="font-bold text-red-600 text-start float-left m-3">
-                ${item.price}
+        if (
+          (props.category == "All" && Number(item.id) <= 8) ||
+          item.category == props.category
+        )
+          return (
+            <div
+              key={item.id}
+              className=" grid max-w-sm rounded border border-red-50 m-4"
+            >
+              <Image
+                className=" justify-self-center h-20 w-20 m-7"
+                src={item.image01}
+                alt="food"
+              />
+              <span className="block text-center eczar font-semibold">
+                {item.title}
               </span>
-              <span className="text-end float-right my-3 mx-4">
-                <button className="bg-red-600 text-white rounded px-5 ">
-                  Add To Cart
-                </button>
-              </span>
+              <div className="mb-5">
+                <span className="font-bold text-red-600 text-start float-left m-3">
+                  ${item.price}
+                </span>
+                <span className="text-end float-right my-3 mx-4">
+                  <button
+                    id={item.id}
+                    className="bg-red-600 text-white rounded px-5 "
+                    onClick={(e) => {
+                      handleAddToCart(e);
+                    }}
+                  >
+                    Add To Cart
+                  </button>
+                </span>
+              </div>
             </div>
-          </div>
-        );
+          );
       })}
     </div>
 
