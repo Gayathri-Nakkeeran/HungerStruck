@@ -4,7 +4,7 @@ import products from "./Product";
 export default function CartTotal() {
   const totalCartValue = useSelector((state) => state.cartTotalAmount);
   return (
-    <div className="bg-red-600 p-3 text-white w-1/3 self-end">
+    <div className="bg-red-600 p-3 text-white self-end">
       <span>
         Subtotal:{" "}
         <span className="text-lg font-semibold">${totalCartValue}</span>

@@ -22,12 +22,18 @@ export default function HomePage() {
 
   const filterBy = useSelector((state: stateType) => state.filterBy);
   return (
-    <>
-      <Header />
-      <Home />
-      <PopularFood />
-      <Card category={filterBy} />
-      <Footer />
-    </>
+    <div className="grid lg:grid-cols-3">
+      <div id="offCart" className="home col-start-1 col-span-3 col-end-4">
+        <Header />
+        <Home />
+        <PopularFood />
+        <Card category={filterBy} />
+        <Footer />
+      </div>
+
+      <div id="miniCart" className="miniCart hidden">
+        <Cart />
+      </div>
+    </div>
   );
 }

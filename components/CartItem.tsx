@@ -44,11 +44,11 @@ export default function CartItem(props: cartItemPropType) {
   };
 
   return (
-    <div className="grid grid-cols-2 m-4  w-1/3 items-center">
+    <div className="grid grid-cols-2 m-4  items-center">
       <div className="grid grid-cols-3">
         <div>
           <Image
-            className="w-10 h-10"
+            className="w-10 h-10 md:w-20 md:h-20"
             src={products[Number(props.id) - 1]["image01"]}
             alt="food"
           ></Image>
@@ -89,7 +89,7 @@ export default function CartItem(props: cartItemPropType) {
         </div>
       </div>
 
-      <div className="text-black font-bold justify-self-end m-4 ">
+      <div className="text-black font-bold justify-self-end m-4 md:justify-self-center ">
         <button
           id={props.id}
           onClick={(e) => {

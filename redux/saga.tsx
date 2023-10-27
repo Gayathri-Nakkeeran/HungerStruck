@@ -80,8 +80,9 @@ function* decreaseQuantity(action: PayloadAction<string>) {
   yield put(decreasingQuantity(action.payload));
 }
 
-function* clearCart() {
-  yield put(clearingCart);
+function* clearCart(action: PayloadAction<string>) {
+  // console.log("saga ");
+  yield put(clearingCart(action));
 }
 function* rootSaga() {
   yield takeEvery("storeFilter", storeFilter);

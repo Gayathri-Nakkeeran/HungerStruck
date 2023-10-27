@@ -17,7 +17,9 @@ export default function CartPage() {
   return (
     <>
       <Header />
-      <Cart />
+      <div className="lg:mx-20 lg:my-10">
+        <Cart />
+      </div>
     </>
   );
 }

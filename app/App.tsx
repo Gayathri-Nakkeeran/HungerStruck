@@ -12,6 +12,8 @@
 //   filterBy: string;
 // };
 
+import Form from "@components/Form";
+
 import Home from "./pages/HomePage/page";
 
 export default function App() {
@@ -22,3 +24,4 @@ export default function App() {
     </>
   );
 }
+("");

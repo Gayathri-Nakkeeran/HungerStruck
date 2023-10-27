@@ -140,6 +140,8 @@ const slice = createSlice({
       }
     },
     clearingCart: (state, action) => {
+      console.log("slice")
+      state.cartCount = 0
       state.cartItems = []
       state.cartQuantity = {}
       state.cartTotalAmount = 0

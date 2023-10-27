@@ -20,7 +20,7 @@ export default function PopularFood() {
 
       <div className="bg-red-600 rounded text-center text-white m-4 py-4">
         <span
-          className="py-1 px-4 mx-8 rounded hover:bg-white hover:text-red-600"
+          className="py-1 px-4 md:mx-8 rounded hover:bg-white hover:text-red-600"
           onClick={() => {
             handleFilter("All");
           }}
@@ -28,7 +28,7 @@ export default function PopularFood() {
           All
         </span>
         <span
-          className="py-1 px-4 mx-8 rounded hover:bg-white hover:text-red-600"
+          className="py-1 px-4 md:mx-8 rounded hover:bg-white hover:text-red-600"
           onClick={() => {
             handleFilter("Burger");
           }}
@@ -37,7 +37,7 @@ export default function PopularFood() {
           <span className="p-2">Burger</span>
         </span>
         <span
-          className="py-1 px-4 mx-8 rounded hover:bg-white hover:text-red-600"
+          className="py-1 px-4 md:mx-8 rounded hover:bg-white hover:text-red-600"
           onClick={() => {
             handleFilter("Pizza");
           }}
@@ -46,7 +46,7 @@ export default function PopularFood() {
           <span className="p-2">Pizza</span>
         </span>
         <span
-          className="py-1 px-4 mx-8 rounded hover:bg-white hover:text-red-600"
+          className="py-1 px-4 md:mx-8 rounded hover:bg-white hover:text-red-600"
           onClick={() => {
             handleFilter("Bread");
           }}
