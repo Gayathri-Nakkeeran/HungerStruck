@@ -12,20 +12,16 @@ export default function Card(props: categoryFilter) {
   const sortBy = useSelector((state: RootState) => state.sortBy);
 
   const handleAddToCart = (e: any) => {
-    console.log("item added to cart");
-    console.log(e.target.id);
     dispatch({
       type: "addToCart",
       payload: { id: e.target.id, price: Product[e.target.id - 1]["price"] },
     });
   };
-  // {console.log()}
 
   if (searchBy.length > 0) {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 m-4">
         {Product.map((item) => {
-          // console.log(/.*searchBy}.*/);
           if (item.title.toLowerCase().indexOf(searchBy.toLowerCase()) > -1)
             return (
               <div
@@ -103,23 +99,5 @@ export default function Card(props: categoryFilter) {
           );
       })}
     </div>
-
-    // <div className="max-w-sm rounded overflow-hidden shadow-lg">
-    //   <Image className="w-full" src="/img/card-top.jpg" alt="food" />
-    //   <div className="px-6 py-4">
-    //     <div className="font-bold text-xl mb-2">Item</div>
-    //   </div>
-    //   <div className="px-6 pt-4 pb-2">
-    //     <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-    //       cost
-    //     </span>
-    //     <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-    //       add to cart
-    //     </span>
-    //     {/* <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-    //       #winter
-    //     </span> */}
-    //   </div>
-    // </div>
   );
 }

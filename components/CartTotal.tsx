@@ -1,8 +1,11 @@
 import { useSelector } from "react-redux";
 import Link from "next/link";
 import products from "./Product";
+import { RootState } from "../redux/store";
 export default function CartTotal() {
-  const totalCartValue = useSelector((state) => state.cartTotalAmount);
+  const totalCartValue = useSelector(
+    (state: RootState) => state.cartTotalAmount
+  );
   return (
     <div className="bg-red-600 p-3 text-white self-end">
       <span>
