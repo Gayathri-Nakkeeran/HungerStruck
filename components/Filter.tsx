@@ -1,5 +1,4 @@
-import { ChangeEvent } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 export default function Filter() {
   const dispatch = useDispatch();

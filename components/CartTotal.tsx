@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import Link from "next/link";
-// import products from "./Product";
 import { RootState } from "../redux/store";
 export default function CartTotal() {
   const totalCartValue = useSelector(

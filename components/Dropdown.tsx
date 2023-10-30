@@ -2,7 +2,6 @@ import { useDispatch } from "react-redux";
 export default function Dropdown() {
   const dispatch = useDispatch();
   const handleSort = (e: any) => {
-    console.log("Sorting Now");
     dispatch({ type: "setSorting", payload: e.target.value });
   };
   return (

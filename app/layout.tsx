@@ -4,7 +4,6 @@ import { Eczar } from "next/font/google";
 import DataProvider from "../components/DataProvider";
 const eczar = Eczar({ subsets: ["latin"], variable: "--font-eczar" });
 import "./globals.css";
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Tasty Treat",

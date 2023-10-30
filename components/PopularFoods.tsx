@@ -4,12 +4,10 @@ import miniBurger from "../images/hamburger.png";
 import miniPizza from "../images/pizza.png";
 import miniBread from "../images/bread.png";
 import Image from "next/image";
-import { MouseEvent } from "react";
 
 export default function PopularFood() {
   const dispatch = useDispatch();
   const handleFilter = (event: string) => {
-    console.log(event);
     dispatch({ type: "storeFilter", payload: { event } });
   };
   return (

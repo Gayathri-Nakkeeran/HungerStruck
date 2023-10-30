@@ -8,11 +8,9 @@ export default function Cart() {
   const closeCart = () => {
     const miniCart = document.querySelector("#miniCart");
     miniCart?.classList.add("hidden");
-    // miniCart?.classList.remove("col-span-3", "col-end-4");
     const offCart = document.querySelector("#offCart");
     offCart?.classList.remove("hidden");
     offCart?.classList.add("col-span-3", "col-end-4");
-    console.log(offCart, "offfcarts");
   };
   return (
     <div className="grid">
@@ -26,7 +24,6 @@ export default function Cart() {
       </div>
       {cartItems.length ? (
         cartItems.map((item: "string") => {
-          console.log(item);
           return <CartItem key={item} id={item} />;
         })
       ) : (

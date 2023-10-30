@@ -4,9 +4,7 @@ import Footer from "@components/Footer";
 import Card from "@components/Card";
 import Home from "@components/Home";
 import PopularFood from "@components/PopularFoods";
-import Foods from "@components/Foods";
 import Cart from "@components/Cart";
-import CheckOut from "@components/Checkout";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 type stateType = {
