@@ -6,37 +6,28 @@ type cartItemPropType = {
 import Image from "next/image";
 import products from "./Product";
 import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../redux/store";
 
 export default function CartItem(props: cartItemPropType) {
-  // console.log(props);
-
-  const quantity = useSelector((state) => state.cartQuantity);
+  const quantity = useSelector((state: any) => state.cartQuantity);
   const count = quantity[props.id];
-  // console.log(quantity);
-  const cartItem = useSelector((state) => state.cartItems);
+  const cartItem = useSelector((state: RootState) => state.cartItems);
   const dispatch = useDispatch();
-
-  const handleRemoveCartItem = (e) => {
-    // console.log("remove cart item clicked");
-    console.log(e.target.id);
-
-    // console.log(index);
-
+  const handleRemoveCartItem = (e: any) => {
     dispatch({
       type: "removeFromCart",
       payload: { id: e.target.id, price: products[e.target.id - 1]["price"] },
     });
-    // let newCart = cartItem.splice(index, 1);
   };
 
-  const increaseQuantity = (e) => {
+  const increaseQuantity = (e: any) => {
     dispatch({
       type: "increaseQuantity",
       payload: { id: e.target.id, price: products[e.target.id - 1]["price"] },
     });
   };
 
-  const decreaseQuantity = (e) => {
+  const decreaseQuantity = (e: any) => {
     dispatch({
       type: "decreaseQuantity",
       payload: { id: e.target.id, price: products[e.target.id - 1]["price"] },

@@ -1,10 +1,5 @@
-import Image from 'next/image'
-import App from './App'
+import HomePage from "./pages/HomePage/page";
 
-
-export default function Home() {
-  return (
-    <App/>
-   
-  )
+export default function page() {
+  return <HomePage />;
 }

@@ -1,20 +1,17 @@
 import CartTotal from "./CartTotal";
 import CartItem from "./CartItem";
 import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 export default function Cart() {
-  const cartItems = useSelector((state) => state.cartItems);
+  const cartItems = useSelector((state: RootState) => state.cartItems);
 
   const closeCart = () => {
     const miniCart = document.querySelector("#miniCart");
     miniCart?.classList.add("hidden");
     const offCart = document.querySelector("#offCart");
-    // offCart?.classList.remove("col-span-2", "col-end-3");
     offCart?.classList.add("col-span-3", "col-end-4");
     console.log(offCart, "offfcarts");
-    // offCart?.classList.add('')
   };
-  // console.log(typeof cartItems);
-
   return (
     <div className="grid bg-gray-100">
       <div className="mx-5 my-3">
@@ -25,15 +22,6 @@ export default function Cart() {
           X
         </button>
       </div>
-
-      {/* {Object.keys(cartItems).map((key, index) => {
-        console.log(key, index);
-        return <CartItem key={key} id={key} />;
-      })} */}
-      {/* {cartItems.forEach((key, value) => {
-        // return <div>Gayu</div>;
-        console.log(key, value);
-      })} */}
 
       {cartItems.map((item: "string") => {
         console.log(item);

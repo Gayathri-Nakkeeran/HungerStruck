@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Form, Button } from "semantic-ui-react";
 import { useForm } from "react-hook-form";
+import { RootState } from "../redux/store";
 export default function CheckOut() {
   const {
     register,
@@ -11,40 +12,15 @@ export default function CheckOut() {
     formState: { errors },
   } = useForm();
   const dispatch = useDispatch();
-  const name = useSelector((state) => state.name);
-  const email = useSelector((state) => state.email);
-  const phone = useSelector((state) => state.phone);
-  const country = useSelector((state) => state.country);
-  const city = useSelector((state) => state.city);
-  const postal = useSelector((state) => state.postal);
 
   let shippingCost = 30;
-  let cartCost = useSelector((state) => state.cartTotalAmount);
+  let cartCost = useSelector((state: RootState) => state.cartTotalAmount);
   if (cartCost <= 0) {
     shippingCost = 0;
   }
   let totalCost = shippingCost + cartCost;
 
-  const handlePayment = (e) => {
-    // e.preventDefault();
-
-    console.log("All details submitted");
-    // console.log();
-    // if (
-    //   name.length > 0 &&
-    //   email.length > 0 &&
-    //   phone.length == 10 &&
-    //   country.length > 0 &&
-    //   city.length > 0 &&
-    //   postal.length == 6
-    // ) {
-    //   console.log("Hurray!!!!!!!!!!");
-    //   toast("Hurray! The order has been placed.");
-    // } else {
-    //   alert("form must be filled out");
-    //   console.log("Fill the form 66666666");
-    // }
-
+  const handlePayment = (e: any) => {
     dispatch({ type: "clearCart", payload: "" });
   };
 
@@ -53,15 +29,9 @@ export default function CheckOut() {
       <div className=" bg-[url('../images/banner.jpg')] bg-violet-400 brightness-50  bg-blend-multiply bg-cover p-20 px-40 bg-center mb-16">
         <h3 className="eczar font-bold text-4xl text-white">Checkout</h3>
       </div>
-
       <div className="grid lg:grid-cols-3 md:grid-cols-1 font-semibold ">
-        {/* Address entering field */}
         <div className="col-start-1 col-span-2 m-4 p-2">
           <h4 className="font-semibold mb-4">Shipping Address</h4>
-          {/* New form */}
-
-          {/* New form */}
-
           <Form onSubmit={handleSubmit(handlePayment)}>
             <Form.Field>
               <input

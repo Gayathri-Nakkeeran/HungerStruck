@@ -1,7 +1,7 @@
 "use client";
 import { Provider } from "react-redux";
 import React, { ReactNode } from "react";
-import store, { persistor } from "../redux/store";
+import store from "../redux/store";
 type ProviderProps = {
   children: React.ReactNode;
 };

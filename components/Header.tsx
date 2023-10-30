@@ -2,13 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from "../public/res-logo.png";
 import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
 export default function Header() {
-  const cartCount = useSelector((state) => state.cartCount);
+  const cartCount = useSelector((state: RootState) => state.cartCount);
   const handleMiniCart = () => {
     console.log("Trying to open mini cart");
     const miniCart = document.querySelector("#miniCart");
     const offCart = document.querySelector("#offCart");
-    // offCart?.classList.remove("col-span-3");
     offCart?.classList.remove("col-span-3", "col-end-4");
     offCart?.classList.add("col-span-2", "col-end-3");
     miniCart?.classList.remove("hidden");
@@ -37,7 +37,6 @@ export default function Header() {
       </div>
       <div className=" justify-self-end logo m-2 p-2 sm:m-5 sm:p-4">
         <span className="relative m-4 ">
-          {/* <Link href="../pages/CartPage"> */}
           <i
             className="fa fa-shopping-basket"
             aria-hidden="true"
@@ -45,7 +44,7 @@ export default function Header() {
               handleMiniCart();
             }}
           ></i>
-          {/* </Link> */}
+
           <span className="absolute -top-3.5 -right-3.5 bg-red-600 rounded-full px-1.5">
             {cartCount}
           </span>

@@ -20,4 +20,6 @@ const appStore = configureStore({
 sagaMiddleWare.run(rootSaga);
 
 export default appStore;
+
+export type RootState = ReturnType<typeof appStore.getState>;
 // export const persistor = persistStore(appStore);

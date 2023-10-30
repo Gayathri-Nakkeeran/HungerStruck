@@ -18,19 +18,16 @@ export default function Footer() {
           <p>Sunday - Thursday</p>
           <span>10.00am - 11.00pm</span>
           <br></br>
-          {/* <br></br>
-          <br></br> */}
+
           <p>Friday</p>
           <span>Off Day</span>
         </div>
         <div className="text-sm mx-6 my-3 md:m-0 col-span-2 text-center md:text-left md:col-start-2 md:col-end-3 lg:col-start-3 lg:col-end-4 text-gray-700">
           <h2 className="text-lg font-semibold py-3 eczar">Contact</h2>
           <p>Location: ZindaBazar , Sylhet-3100, Bangladesh</p>
-          {/* <br></br>
-          <br></br> */}
+
           <span>Phone: 2345678654</span>
-          {/* <br></br>
-          <br></br> */}
+
           <p>Email: example@gmail.com</p>
         </div>
         <div className="text-sm col-span-3 my-3 md:m-0 text-center md:text-left  md:col-start-3 md:col-end-4 lg:col-start-4 lg:col-end-5 text-gray-700 mx-5">

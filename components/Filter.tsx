@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function Filter() {
   const dispatch = useDispatch();
-  let searchValue = useSelector((state) => state.searchValue);
-  const handleSearch = (e) => {
+  const handleSearch = (e: any) => {
     console.log(e.target);
     dispatch({ type: "setSearch", payload: e.target.value });
   };
@@ -13,7 +12,6 @@ export default function Filter() {
       <input
         className="w-3/4 focus:outline-none"
         type="text"
-        // value={searchValue}
         placeholder="I'm looking for...."
         onChange={(e) => {
           handleSearch(e);

@@ -1,16 +1,17 @@
 import Image from "next/image";
 import Product from "./Product.js";
 import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../redux/store";
 type categoryFilter = {
   category?: string;
   searchBy?: string;
 };
 export default function Card(props: categoryFilter) {
   const dispatch = useDispatch();
-  const searchBy = useSelector((state) => state.searchBy);
-  const sortBy = useSelector((state) => state.sortBy);
+  const searchBy = useSelector((state: RootState) => state.searchBy);
+  const sortBy = useSelector((state: RootState) => state.sortBy);
 
-  const handleAddToCart = (e) => {
+  const handleAddToCart = (e: any) => {
     console.log("item added to cart");
     console.log(e.target.id);
     dispatch({
