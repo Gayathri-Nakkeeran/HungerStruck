@@ -17,25 +17,21 @@ import {
   increasingQuantity,
   decreasingQuantity,
   clearingCart,
-} from "./slice.jsx";
+} from "./slice";
 import { PayloadAction } from "@reduxjs/toolkit";
 
 function* storeFilter(action: PayloadAction<string>) {
-  // console.log("Saga Working", action);
   yield put(storingFilter(action.payload));
 }
 
 function* setSearch(action: PayloadAction<string>) {
-  // console.log("Saga working for search button");
   yield put(searchingItem(action.payload));
 }
 
-function* addToCart(action: PayloadAction<string>) {
-  // console.log("saga working for cart adding");
+function* addToCart(action: PayloadAction<{id:string , price:number}>) {
   yield put(addingCartItem(action.payload));
 }
 function* setSorting(action: PayloadAction<string>) {
-  // console.log("saga working for sorting");
   yield put(setSortBy(action.payload));
 }
 
@@ -58,8 +54,7 @@ function* setPostal(action: PayloadAction<string>) {
   yield put(settingPostal(action.payload));
 }
 
-function* removeFromCart(action: PayloadAction<number>) {
-  // console.log("safa for remove cart");
+function* removeFromCart(action: PayloadAction<{id:string , price:number}>) {
   yield put(removingFromCart(action.payload));
 }
 
@@ -68,20 +63,18 @@ function* removeFilterSearch(action: PayloadAction<string>) {
 }
 
 function* removeSearch(action: PayloadAction<string>) {
-  // console.log("sag for home");
   yield put(removingSearch(action.payload));
 }
 
-function* increaseQuantity(action: PayloadAction<string>) {
+function* increaseQuantity(action: PayloadAction<{id:string , price:number}>) {
   yield put(increasingQuantity(action.payload));
 }
 
-function* decreaseQuantity(action: PayloadAction<string>) {
+function* decreaseQuantity(action:PayloadAction<{id:string , price:number}>) {
   yield put(decreasingQuantity(action.payload));
 }
 
 function* clearCart(action: PayloadAction<string>) {
-  // console.log("saga ");
   yield put(clearingCart(action));
 }
 function* rootSaga() {

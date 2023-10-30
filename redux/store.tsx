@@ -3,7 +3,7 @@ import storage from "redux-persist/lib/storage/session";
 import { persistReducer, persistStore } from "redux-persist";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "./saga";
-import sliceReducer from "./slice.jsx";
+import sliceReducer from "./slice";
 import { enableMapSet } from "immer";
 enableMapSet();
 // const persistConfig = {

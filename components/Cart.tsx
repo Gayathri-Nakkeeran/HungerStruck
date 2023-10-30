@@ -8,12 +8,14 @@ export default function Cart() {
   const closeCart = () => {
     const miniCart = document.querySelector("#miniCart");
     miniCart?.classList.add("hidden");
+    // miniCart?.classList.remove("col-span-3", "col-end-4");
     const offCart = document.querySelector("#offCart");
+    offCart?.classList.remove("hidden");
     offCart?.classList.add("col-span-3", "col-end-4");
     console.log(offCart, "offfcarts");
   };
   return (
-    <div className="grid bg-gray-100">
+    <div className="grid">
       <div className="mx-5 my-3">
         <button
           className="bg-black rounded-full text-white px-2"
@@ -22,13 +24,18 @@ export default function Cart() {
           X
         </button>
       </div>
+      {cartItems.length ? (
+        cartItems.map((item: "string") => {
+          console.log(item);
+          return <CartItem key={item} id={item} />;
+        })
+      ) : (
+        <p className="font-semibold sm:m-2 p-5">
+          Add Items To Cart...Cart Is Empty !!
+        </p>
+      )}
 
-      {cartItems.map((item: "string") => {
-        console.log(item);
-        return <CartItem key={item} id={item} />;
-      })}
-
-      <div className="self-end">
+      <div className="fixed w-1/3 bottom-0">
         <CartTotal />
       </div>
     </div>

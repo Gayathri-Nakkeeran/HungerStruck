@@ -31,7 +31,7 @@ export default function HomePage() {
         <Footer />
       </div>
 
-      <div id="miniCart" className="miniCart hidden">
+      <div id="miniCart" className="miniCart hidden z-50">
         <Cart />
       </div>
     </div>

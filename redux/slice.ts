@@ -1,5 +1,7 @@
 // const cartItemsArray: string[] = [];
 
+import { PayloadAction } from "@reduxjs/toolkit";
+
 
 const initialState = {
   filterBy: "All",
@@ -24,22 +26,21 @@ const slice = createSlice({
   name: "slice",
   initialState,
   reducers: {
-    storingFilter: (state, action) => {
-      // console.log("slice working now");
-      // console.log(action);
+    storingFilter: (state, action: PayloadAction<any>) => {
+
       state.filterBy = action.payload.event;
     },
 
-    searchingItem: (state, action) => {
-      // console.log("Slice working for search Button", action);
+    searchingItem: (state, action:PayloadAction<any>) => {
+
       state.searchBy = action.payload;
-      // console.log()
+
     },
 
-    addingCartItem: (state, action) => {
-      console.log("slice working for adding cartitem", action.payload);
+    addingCartItem: (state:any, action:PayloadAction<{id:string , price:number}>) => {
+
       state.cartTotalAmount += action.payload.price
-      // let item: string = action.payload;
+
       if (state.cartItems.indexOf(action.payload.id) == -1)
         state.cartItems.push(action.payload.id);
       state.cartCount += 1;
@@ -51,10 +52,10 @@ const slice = createSlice({
         state.cartQuantity[action.payload.id] += 1
       }
 
-      // state.cartQuantity[action.payload] == 0 ? 1 : state.cartQuantity[action.payload] + 1;
+
     },
     setSortBy: (state, action) => {
-      console.log("slice working for sorting", action);
+
       state.sortBy = action.payload;
     },
 
@@ -82,60 +83,57 @@ const slice = createSlice({
       state.postal = action.payload;
     },
 
-    removingFromCart: (state, action) => {
-      // console.log("slice remove cart");
-      console.log(action.payload.id)
+    removingFromCart: (state:any, action:PayloadAction<{id:string , price:number}>) => {
+
       var index = state.cartItems.indexOf(action.payload.id);
-      // console.log(index);
+
       if (index !== -1) {
-        console.log("splicingggggg")
+
         state.cartItems.splice(index, 1)
-        // state.cartCount -= 1;
+
 
       }
-      // state.cartItems.splice(action.payload.id, 1);
-      // console.log(state.cartQuantity, action.payload, "from splice fro remove")
-      // if (state.cartCount > 0)
-      console.log(state.cartQuantity)
+
+
       state.cartCount -= state.cartQuantity[action.payload.id];
 
       state.cartTotalAmount -= (action.payload.price * state.cartQuantity[action.payload.id])
-      // state.cartQuantity[action.payload] == 0 ? 1 : state.cartQuantity[action.payload] - 1;
+
     },
 
     removingFilterSearch: (state, payload) => {
       state.filterBy = "All";
       state.searchBy = "";
-      // console.log("slice working");
+
     },
     removingSearch: (state, payload) => {
       state.searchBy = "";
-      // console.log("slice for home page");
+
     },
-    increasingQuantity: (state, action) => {
+    increasingQuantity: (state:any, action:PayloadAction<{id:string , price:number}>) => {
       state.cartQuantity[action.payload.id] += 1
       state.cartCount += 1
       state.cartTotalAmount += action.payload.price;
     },
-    decreasingQuantity: (state, action) => {
+    decreasingQuantity: (state:any, action:PayloadAction<{id:string , price:number}>) => {
       state.cartTotalAmount -= action.payload.price
-      // console.log(state.cartQuantity[action.payload] > 0, "check check")
+
       if (state.cartQuantity[action.payload.id] > 1) {
         state.cartQuantity[action.payload.id] -= 1
         state.cartCount -= 1
       }
 
       else {
-        console.log("else working")
+
         var index = state.cartItems.indexOf(action.payload.id);
-        // console.log(index);
+
         if (index !== -1) {
           state.cartItems.splice(index, 1)
           state.cartCount -= 1;
 
         }
 
-        // state.cartCount -= 1;
+
 
       }
     },

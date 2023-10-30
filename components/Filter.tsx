@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 export default function Filter() {
   const dispatch = useDispatch();
   const handleSearch = (e: any) => {
-    console.log(e.target);
     dispatch({ type: "setSearch", payload: e.target.value });
   };
   return (

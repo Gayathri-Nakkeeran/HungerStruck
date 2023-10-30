@@ -21,6 +21,7 @@ export default function CheckOut() {
   let totalCost = shippingCost + cartCost;
 
   const handlePayment = (e: any) => {
+    toast("Hurray! The order has been placed.");
     dispatch({ type: "clearCart", payload: "" });
   };
 
@@ -45,7 +46,9 @@ export default function CheckOut() {
                 }}
               ></input>
             </Form.Field>
-            {errors.firstName && <p>Please Enter your Name</p>}
+            {errors.firstName && (
+              <p className="text-red-400">Please Enter your Name</p>
+            )}
             <hr />
 
             <Form.Field>
@@ -64,7 +67,9 @@ export default function CheckOut() {
                 placeholder="  Enter your email"
               ></input>
             </Form.Field>
-            {errors.email && <p>Please enter valid Email</p>}
+            {errors.email && (
+              <p className="text-red-400">Please enter valid Email</p>
+            )}
             <hr />
             <Form.Field>
               <input
@@ -78,7 +83,9 @@ export default function CheckOut() {
                 placeholder="  Phone number"
               ></input>
             </Form.Field>
-            {errors.phone && <p>Please enter valid 10 digit number</p>}
+            {errors.phone && (
+              <p className="text-red-400">Please enter valid 10 digit number</p>
+            )}
             <hr />
             <Form.Field>
               <input
@@ -92,7 +99,9 @@ export default function CheckOut() {
                 placeholder="  Country"
               ></input>
             </Form.Field>
-            {errors.country && <p>Please fill country</p>}
+            {errors.country && (
+              <p className="text-red-400">Please fill country</p>
+            )}
             <hr />
             <Form.Field>
               <input
@@ -106,7 +115,7 @@ export default function CheckOut() {
                 placeholder="  City"
               ></input>
             </Form.Field>
-            {errors.city && <p>Please fill city</p>}
+            {errors.city && <p className="text-red-400">Please fill city</p>}
             <hr />
             <Form.Field>
               <input
@@ -121,7 +130,9 @@ export default function CheckOut() {
                 placeholder="  Postal code"
               ></input>
             </Form.Field>
-            {errors.postal && <p>Enter valid postal code</p>}
+            {errors.postal && (
+              <p className="text-red-400">Enter valid postal code</p>
+            )}
             <hr />
 
             <Button

@@ -6,14 +6,18 @@ import { RootState } from "../redux/store";
 export default function Header() {
   const cartCount = useSelector((state: RootState) => state.cartCount);
   const handleMiniCart = () => {
-    console.log("Trying to open mini cart");
     const miniCart = document.querySelector("#miniCart");
     const offCart = document.querySelector("#offCart");
     offCart?.classList.remove("col-span-3", "col-end-4");
-    offCart?.classList.add("col-span-2", "col-end-3");
-    miniCart?.classList.remove("hidden");
+    offCart?.classList.add("col-span-2", "col-end-3", "hidden", "sm:grid");
 
-    console.log(miniCart);
+    miniCart?.classList.remove("hidden");
+    miniCart?.classList.add(
+      "col-span-3",
+      "col-end-4",
+      "sm:col-span-1",
+      "sm:col-end-4"
+    );
   };
   return (
     <div className="grid items-center grid-cols-3 text-sm bg-gray-100 mb-1">

@@ -4,7 +4,7 @@ type cartItemPropType = {
 };
 
 import Image from "next/image";
-import products from "./Product";
+import products from "./Product.ts";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../redux/store";
 
@@ -39,7 +39,7 @@ export default function CartItem(props: cartItemPropType) {
       <div className="grid grid-cols-3">
         <div>
           <Image
-            className="w-10 h-10 md:w-20 md:h-20"
+            className="w-10 h-10 md:w-20 md:h-20 bg-gray-100 "
             src={products[Number(props.id) - 1]["image01"]}
             alt="food"
           ></Image>
